@@ -23,5 +23,8 @@ export class TaskTitle {
     if (title.trim().length < 3) {
       throw new Error('Title must have at least 3 characters');
     }
+
+    if (title.trim().length > 100)
+      throw new Error('Task title should not have more than 100 characters.');
   }
 }

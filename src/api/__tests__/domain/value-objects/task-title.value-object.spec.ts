@@ -22,4 +22,12 @@ describe('TaskTitle value-object tests', () => {
       'Title must have at least 3 characters',
     );
   });
+
+  it('should not allow a task title to have more than 100 characters', () => {
+    const very_long_title = 'a'.repeat(101);
+
+    expect(() => TaskTitle.create(very_long_title)).toThrow(
+      'Task title should not have more than 100 characters.',
+    );
+  });
 });
