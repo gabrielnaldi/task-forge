@@ -21,7 +21,7 @@ export class TaskTitle {
   // Validations
   private static validateTitleSize(title: string) {
     if (title.trim().length < 3) {
-      throw new Error('Title must have at least 3 characters');
+      throw new Error('Task title must have at least 3 characters.');
     }
 
     if (title.trim().length > 100)
