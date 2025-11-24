@@ -16,4 +16,10 @@ describe('TaskTitle value-object tests', () => {
     expect(task_title).toBeDefined();
     expect(task_title.value).toBe(value);
   });
+
+  it('should not allow a task title to be shorter than 3 characters', () => {
+    expect(() => TaskTitle.create('ab')).toThrow(
+      'Title must have a least 3 characters',
+    );
+  });
 });

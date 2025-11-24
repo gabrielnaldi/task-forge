@@ -10,8 +10,12 @@ export class TaskTitle {
   }
 
   // Factories
-  static create(value: string) {
-    const task_title = new TaskTitle(value);
+  static create(title: string) {
+    if (title.trim().length < 3) {
+      throw new Error('Title must have at least 3 characters');
+    }
+
+    const task_title = new TaskTitle(title);
 
     return task_title;
   }
