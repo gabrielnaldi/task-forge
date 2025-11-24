@@ -11,12 +11,17 @@ export class TaskTitle {
 
   // Factories
   static create(title: string) {
-    if (title.trim().length < 3) {
-      throw new Error('Title must have at least 3 characters');
-    }
+    this.validateTitleSize(title);
 
     const task_title = new TaskTitle(title);
 
     return task_title;
+  }
+
+  // Validations
+  private static validateTitleSize(title: string) {
+    if (title.trim().length < 3) {
+      throw new Error('Title must have at least 3 characters');
+    }
   }
 }
