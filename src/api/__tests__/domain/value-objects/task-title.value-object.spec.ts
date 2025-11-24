@@ -6,4 +6,10 @@ describe('TaskTitle value-object tests', () => {
 
     expect(task_title).toBeDefined();
   });
+
+  it('should create a TaskTitle through factory', () => {
+    const task_title = TaskTitle.create();
+
+    expect(task_title).toBeDefined();
+  });
 });
