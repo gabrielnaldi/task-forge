@@ -1,10 +1,18 @@
 export class TaskTitle {
-  constructor() {}
+  private readonly _value: string;
+
+  constructor(title: string) {
+    this._value = title;
+  }
+
+  get value() {
+    return this._value;
+  }
 
   // Factories
-  static create() {
-    const title = new TaskTitle();
+  static create(value: string) {
+    const task_title = new TaskTitle(value);
 
-    return title;
+    return task_title;
   }
 }
