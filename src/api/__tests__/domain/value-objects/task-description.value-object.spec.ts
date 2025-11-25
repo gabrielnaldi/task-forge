@@ -16,4 +16,10 @@ describe('TaskDescription value-object tests', () => {
     expect(task_description).toBeDefined();
     expect(task_description.value).toBe(description);
   });
+
+  it('should not allow a task description to have less than 3 characters', () => {
+    expect(() => TaskDescription.create('ab')).toThrow(
+      'Task description must have at least 3 characters.',
+    );
+  });
 });
