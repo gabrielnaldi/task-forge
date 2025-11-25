@@ -28,4 +28,17 @@ describe('Task entity tests', () => {
     expect(task.createdAt).toBe(task_data.createdAt);
     expect(task.updatedAt).toBe(task_data.updatedAt);
   });
+
+  it('should return all props from toJson() method', () => {
+    const task = new Task(task_data);
+
+    expect(task.toJson()).toEqual({
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      status: task.status,
+      createdAt: task.createdAt,
+      updatedAt: task.updatedAt,
+    });
+  });
 });
