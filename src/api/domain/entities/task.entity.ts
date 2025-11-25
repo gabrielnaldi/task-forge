@@ -1,3 +1,50 @@
+import {
+  TaskContract,
+  TaskCreateContract,
+  TaskStatus,
+} from '../contracts/task.contracts';
+
 export class Task {
-  constructor() {}
+  private readonly props: TaskContract;
+
+  constructor(props: TaskContract) {
+    this.props = props;
+  }
+
+  // Getters
+  get id() {
+    return this.props.id;
+  }
+
+  get title() {
+    return this.props.title.value;
+  }
+
+  get description() {
+    return this.props.description.value;
+  }
+
+  get status() {
+    return this.props.status;
+  }
+
+  get createdAt() {
+    return this.props.createdAt;
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt;
+  }
+
+  // Factories
+  public static create(props: TaskCreateContract) {
+    const now = new Date();
+
+    return new Task({
+      ...props,
+      status: props.status || TaskStatus.PENDING,
+      createdAt: props.createdAt || now,
+      updatedAt: props.updatedAt || now,
+    });
+  }
 }
