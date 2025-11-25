@@ -17,16 +17,16 @@ describe('TaskDescription value-object tests', () => {
     expect(task_description.value).toBe(description);
   });
 
-  it('should not allow a task description to have less than 3 characters', () => {
-    expect(() => TaskDescription.create('ab')).toThrow(
-      'Task description must have at least 3 characters.',
+  it('should not allow a task description to have less than 5 characters', () => {
+    expect(() => TaskDescription.create('abcd')).toThrow(
+      'Task description must have at least 5 characters.',
     );
   });
 
-  it('should not allow a task description to have more than 100 characters', () => {
-    const description = 'a'.repeat(101);
+  it('should not allow a task description to have more than 255 characters', () => {
+    const description = 'a'.repeat(256);
     expect(() => TaskDescription.create(description)).toThrow(
-      'Task description should not have more than 100 characters.',
+      'Task description should not have more than 255 characters.',
     );
   });
 });

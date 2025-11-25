@@ -16,13 +16,13 @@ export class TaskDescription {
 
   // Validations
   private static validateDescriptionSize(title: string) {
-    if (title.trim().length < 3) {
-      throw new Error('Task description must have at least 3 characters.');
+    if (title.trim().length < 5) {
+      throw new Error('Task description must have at least 5 characters.');
     }
 
-    if (title.trim().length > 100)
+    if (title.trim().length > 255)
       throw new Error(
-        'Task description should not have more than 100 characters.',
+        'Task description should not have more than 255 characters.',
       );
   }
 }
