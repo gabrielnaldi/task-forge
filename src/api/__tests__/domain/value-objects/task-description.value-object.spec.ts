@@ -8,4 +8,12 @@ describe('TaskDescription value-object tests', () => {
     expect(task_description).toBeDefined();
     expect(task_description.value).toBe(description);
   });
+
+  it('should make a new task description through factory', () => {
+    const description = 'Task description example';
+    const task_description = TaskDescription.create(description);
+
+    expect(task_description).toBeDefined();
+    expect(task_description.value).toBe(description);
+  });
 });
