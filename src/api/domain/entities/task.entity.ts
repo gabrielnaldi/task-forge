@@ -36,6 +36,17 @@ export class Task {
     return this.props.updatedAt;
   }
 
+  toJson() {
+    return {
+      id: this.id,
+      title: this.title,
+      description: this.description,
+      status: this.status,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+    };
+  }
+
   // Factories
   public static create(props: TaskCreateContract) {
     const now = new Date();
