@@ -21,6 +21,8 @@ export class TaskDescription {
     }
 
     if (title.trim().length > 100)
-      throw new Error('Task title should not have more than 100 characters.');
+      throw new Error(
+        'Task description should not have more than 100 characters.',
+      );
   }
 }
