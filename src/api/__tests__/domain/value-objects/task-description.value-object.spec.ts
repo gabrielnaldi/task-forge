@@ -22,4 +22,11 @@ describe('TaskDescription value-object tests', () => {
       'Task description must have at least 3 characters.',
     );
   });
+
+  it('should not allow a task description to have more than 100 characters', () => {
+    const description = 'a'.repeat(101);
+    expect(() => TaskDescription.create(description)).toThrow(
+      'Task description should not have more than 100 characters.',
+    );
+  });
 });
