@@ -41,4 +41,20 @@ describe('Task entity tests', () => {
       updatedAt: task.updatedAt,
     });
   });
+
+  it('should update task status', async () => {
+    const task = new Task(task_data);
+    const updated_at_time = task.updatedAt.getTime();
+
+    // await few moments
+    await new Promise(resolve => setTimeout(resolve, 50));
+
+    // validation before
+    expect(task.status).toBe(TaskStatus.PENDING);
+    task.changeStatus(TaskStatus.COMPLETED);
+
+    // validation after
+    expect(task.status).toBe(TaskStatus.COMPLETED);
+    expect(task.updatedAt.getTime()).toBeGreaterThan(updated_at_time);
+  });
 });
