@@ -11,6 +11,16 @@ export class Task {
     this.props = props;
   }
 
+  // Actions
+  changeStatus(status: TaskStatus) {
+    this.props.status = status;
+    this.touch();
+  }
+
+  private touch() {
+    this.props.updatedAt = new Date();
+  }
+
   // Getters
   get id() {
     return this.props.id;
