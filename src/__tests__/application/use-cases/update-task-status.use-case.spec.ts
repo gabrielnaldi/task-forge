@@ -49,4 +49,13 @@ describe('UpdateTaskStatusUseCase tests', () => {
     expect(original_status).toBe(TaskStatus.PENDING);
     expect(updated_task.status).toBe(TaskStatus.CANCELED);
   });
+
+  it('should throw an error if task does not exist', async () => {
+    expect(() =>
+      useCase.execute({
+        taskId: 'task-99',
+        newStatus: TaskStatus.CANCELED,
+      }),
+    ).rejects.toThrow('Task not found!');
+  });
 });
