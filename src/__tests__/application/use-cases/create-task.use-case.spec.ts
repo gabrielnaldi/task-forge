@@ -3,8 +3,8 @@ import { Task } from '@src/api/domain/entities/task.entity';
 import { IDGenerator } from '@src/api/application/service/id-generator.service';
 import { UUIDGenerator } from '@src/api/infra/services/uuid-generator.service';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
-import { InMemoryTasksRepositories } from '@src/api/application/repositories/in-memory/in-memory-tasks-repository';
 import { CreateTaskUseCase } from '@src/api/application/use-cases/create-task/create-task.use-case';
+import { InMemoryTasksRepository } from '@src/api/application/repositories/in-memory/in-memory-tasks-repository';
 
 describe('CreateTaskUseCase tests', () => {
   let useCase: CreateTaskUseCase;
@@ -20,13 +20,13 @@ describe('CreateTaskUseCase tests', () => {
         },
         {
           provide: TasksRepository,
-          useClass: InMemoryTasksRepositories,
+          useClass: InMemoryTasksRepository,
         },
       ],
     }).compile();
 
     useCase = module.get<CreateTaskUseCase>(CreateTaskUseCase);
-    tasksRepository = module.get<InMemoryTasksRepositories>(TasksRepository);
+    tasksRepository = module.get<InMemoryTasksRepository>(TasksRepository);
   });
 
   it('should create a task', async () => {

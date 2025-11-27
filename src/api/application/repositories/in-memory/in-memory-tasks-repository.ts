@@ -1,7 +1,7 @@
 import { Task } from '@src/api/domain/entities/task.entity';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
 
-export class InMemoryTasksRepositories implements TasksRepository {
+export class InMemoryTasksRepository implements TasksRepository {
   private readonly tasks: Task[] = [];
 
   async save(task: Task): Promise<Task> {
