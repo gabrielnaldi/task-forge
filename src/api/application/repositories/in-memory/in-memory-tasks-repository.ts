@@ -5,7 +5,14 @@ export class InMemoryTasksRepository implements TasksRepository {
   private readonly tasks: Task[] = [];
 
   async save(task: Task): Promise<Task> {
-    this.tasks.push(task);
+    const task_index = this.tasks.findIndex(t => t.id === task.id);
+
+    // update
+    if (task_index !== -1) this.tasks[task_index] = task;
+
+    // create
+    if (task_index === -1) this.tasks.push(task);
+
     return task;
   }
 
