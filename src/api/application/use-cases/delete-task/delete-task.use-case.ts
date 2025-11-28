@@ -1,9 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
-
-interface DeleteTaskInput {
-  taskId: string;
-}
+import { DeleteTaskInput } from './delete-task.input';
 
 @Injectable()
 export class DeleteTaskUseCase {
