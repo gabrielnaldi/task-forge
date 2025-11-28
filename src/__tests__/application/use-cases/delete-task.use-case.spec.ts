@@ -47,4 +47,10 @@ describe('DeleteTaskUseCase tests', () => {
     expect(task_before_delete_action.id).toBe(task_id);
     expect(task_after_delete_action).toBeUndefined();
   });
+
+  it('should throw an error if task does not exist', () => {
+    expect(() => useCase.execute({ taskId: '999' })).rejects.toThrow(
+      'Task not found!',
+    );
+  });
 });
