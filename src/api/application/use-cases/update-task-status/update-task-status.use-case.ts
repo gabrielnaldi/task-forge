@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { TaskStatus } from '@src/api/domain/contracts/task.contracts';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
+import { UpdateTaskStatusInput } from './update-task.input';
 
 @Injectable()
 export class UpdateTaskStatusUseCase {
   constructor(private readonly tasksRepository: TasksRepository) {}
 
-  public async execute(input: { taskId: string; newStatus: TaskStatus }) {
+  public async execute(input: UpdateTaskStatusInput) {
     const task = await this.tasksRepository.findById(input.taskId);
 
     if (!task) throw new Error('Task not found!');
