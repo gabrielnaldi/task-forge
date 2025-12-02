@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { InMemoryTasksRepository } from '@src/api/application/repositories/in-memory/in-memory-tasks-repository';
+import { InMemoryTasksRepository } from '@src/__tests__/doubles/in-memory/in-memory-tasks-repository';
 import { ListTasksUseCase } from '@src/api/application/use-cases/list-tasks/list-tasks.use-case';
 import { Task } from '@src/api/domain/entities/task.entity';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';

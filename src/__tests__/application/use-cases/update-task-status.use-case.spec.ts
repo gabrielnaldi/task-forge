@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { InMemoryTasksRepository } from '@src/api/application/repositories/in-memory/in-memory-tasks-repository';
+import { InMemoryTasksRepository } from '@src/__tests__/doubles/in-memory/in-memory-tasks-repository';
 import { UpdateTaskStatusUseCase } from '@src/api/application/use-cases/update-task-status/update-task-status.use-case';
 import { TaskStatus } from '@src/api/domain/contracts/task.contracts';
 import { Task } from '@src/api/domain/entities/task.entity';
