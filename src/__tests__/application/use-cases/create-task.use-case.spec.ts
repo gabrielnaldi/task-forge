@@ -1,10 +1,10 @@
 import { Test } from '@nestjs/testing';
 import { Task } from '@src/api/domain/entities/task.entity';
-import { IDGenerator } from '@src/api/application/service/id-generator.service';
 import { UUIDGenerator } from '@src/api/infra/services/uuid-generator.service';
 import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
 import { CreateTaskUseCase } from '@src/api/application/use-cases/create-task/create-task.use-case';
 import { InMemoryTasksRepository } from '@src/api/application/repositories/in-memory/in-memory-tasks-repository';
+import { IDGenerator } from '@src/api/application/services/id-generator.service';
 
 describe('CreateTaskUseCase tests', () => {
   let useCase: CreateTaskUseCase;

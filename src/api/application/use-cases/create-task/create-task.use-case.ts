@@ -3,8 +3,8 @@ import { TasksRepository } from '@src/api/domain/repositories/tasks.repository';
 import { TaskDescription } from '@src/api/domain/value-objects/task-description.value-object';
 import { TaskTitle } from '@src/api/domain/value-objects/task-title.value-object';
 import { Injectable } from '@nestjs/common';
-import { IDGenerator } from '../../service/id-generator.service';
 import { CreateTaskInput } from './create-task.input';
+import { IDGenerator } from '../../services/id-generator.service';
 
 @Injectable()
 export class CreateTaskUseCase {

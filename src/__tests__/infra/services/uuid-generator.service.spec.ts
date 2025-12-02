@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { UUID_V4_REGEX } from '@src/__tests__/domain/consts/regex';
-import { IDGenerator } from '@src/api/application/service/id-generator.service';
+import { IDGenerator } from '@src/api/application/services/id-generator.service';
 import { UUIDGenerator } from '@src/api/infra/services/uuid-generator.service';
 
 describe('UUIDGenerator tests', () => {
