@@ -74,7 +74,8 @@
     "moduleNameMapper": {
       "@src/(.*)": "<rootDir>/$1",
       "@domain/(.*)": "<rootDir>/domain/$1",
-      "@application/(.*)": "<rootDir>/application/$1"
+      "@application/(.*)": "<rootDir>/application/$1",
+      "@infra/(.*)": "<rootDir>/infra/$1"
     },
     "transformIgnorePatterns": [
       "node_modules/(?!(uuid)/)"
