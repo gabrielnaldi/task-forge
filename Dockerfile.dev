@@ -1,0 +1,20 @@
+FROM node:24
+
+# Define explicitamente o ambiente
+ENV NODE_ENV=development
+
+WORKDIR /var/www/app
+
+# Instala o Nest CLI (necessário para start:dev)
+RUN npm install -g @nestjs/cli
+
+# Copia apenas o package.json e package-lock.json primeiro (melhor cache)
+COPY ./package*.json ./
+
+# Instala dependências (inclui dev dependencies porque estamos no modo dev)
+RUN npm install
+
+# Copia o restante do projeto
+COPY . .
+
+EXPOSE 3000
