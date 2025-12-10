@@ -12,6 +12,25 @@ services:
     volumes:
       - /data:/var/lib/postgresql
 
+  app:
+    container_name: task-forge-app 
+    build:
+      context: . 
+      dockerfile: Dockerfile.dev
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    networks:
+      - task-forge-network
+    depends_on:
+      - database
+    volumes:
+      - ./src:/var/www/app/src
+      - ./prisma:/var/www/app/prisma
+    command: npm run start:dev
+
 networks:
   task-forge-network:
     driver: bridge
