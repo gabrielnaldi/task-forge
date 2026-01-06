@@ -9,4 +9,12 @@ describe('Title - Value Object', () => {
     expect(title).toBeDefined();
     expect(title.value).toBe(title_value);
   });
+
+  it('should not allow titles to exceed 30 characters', () => {
+    const invalid_value = 'a'.repeat(31);
+
+    expect(() => Title.create(invalid_value)).toThrow(
+      'The title must not exceed 30 characters.',
+    );
+  });
 });
