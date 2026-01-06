@@ -10,6 +10,9 @@ export class Title {
   }
 
   static create(value: string) {
+    if (value.length > 30)
+      throw new Error('The title must not exceed 30 characters.');
+
     const title = new Title(value);
 
     return title;
