@@ -1,3 +1,4 @@
+import { TitleError } from '@src/domain/errors/value-objects/title.errors';
 import { Title } from '@src/domain/value-objects/title.value-object';
 
 describe('Title - Value Object', () => {
@@ -13,8 +14,6 @@ describe('Title - Value Object', () => {
   it('should not allow titles to exceed 30 characters', () => {
     const invalid_value = 'a'.repeat(31);
 
-    expect(() => Title.create(invalid_value)).toThrow(
-      'The title must not exceed 30 characters.',
-    );
+    expect(() => Title.create(invalid_value)).toThrow(TitleError);
   });
 });
