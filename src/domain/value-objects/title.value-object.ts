@@ -1,7 +1,9 @@
+import { TitleError } from '../errors/value-objects/title.errors';
+
 export class Title {
   private readonly _value: string;
 
-  constructor(value: string) {
+  private constructor(value: string) {
     this._value = value;
   }
 
@@ -10,8 +12,7 @@ export class Title {
   }
 
   static create(value: string) {
-    if (value.length > 30)
-      throw new Error('The title must not exceed 30 characters.');
+    if (value.length > 30) throw TitleError.maxLength();
 
     const title = new Title(value);
 
