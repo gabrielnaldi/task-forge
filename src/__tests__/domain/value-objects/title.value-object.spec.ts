@@ -16,4 +16,17 @@ describe('Title - Value Object', () => {
 
     expect(() => Title.create(invalid_value)).toThrow(TitleError);
   });
+
+  it('should ensure that title is not empty', () => {
+    const invalid_value = '';
+    const fn = () => Title.create(invalid_value);
+
+    try {
+      fn();
+    } catch (error) {
+      expect(error).toBeInstanceOf(TitleError);
+      expect((error as TitleError).name).toBe('TitleError');
+      expect((error as TitleError).code).toBe('NOT_EMPTY_ERROR');
+    }
+  });
 });
