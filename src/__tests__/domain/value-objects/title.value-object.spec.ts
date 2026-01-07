@@ -14,7 +14,15 @@ describe('Title - Value Object', () => {
   it('should not allow titles to exceed 30 characters', () => {
     const invalid_value = 'a'.repeat(31);
 
-    expect(() => Title.create(invalid_value)).toThrow(TitleError);
+    const fn = () => Title.create(invalid_value);
+
+    try {
+      fn();
+    } catch (error) {
+      expect(error).toBeInstanceOf(TitleError);
+      expect((error as TitleError).name).toBe('TitleError');
+      expect((error as TitleError).code).toBe('MAX_LENGTH_ERROR');
+    }
   });
 
   it('should ensure that title is not empty', () => {
