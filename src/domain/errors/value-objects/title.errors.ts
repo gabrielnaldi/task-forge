@@ -1,10 +1,11 @@
 export class TitleError extends Error {
-  public readonly code: string;
+  readonly code: string;
 
   constructor(message: string, code: string) {
     super(message);
 
     this.code = code;
+    this.name = 'TitleError';
 
     Object.setPrototypeOf(this, new.target.prototype);
   }
@@ -14,6 +15,12 @@ export class TitleError extends Error {
       'Title must not exceed 30 characters!',
       'MAX_LENGTH_ERROR',
     );
+
+    return error;
+  }
+
+  static notEmpty(): TitleError {
+    const error = new TitleError('Title must not be empty!', 'NOT_EMPTY_ERROR');
 
     return error;
   }

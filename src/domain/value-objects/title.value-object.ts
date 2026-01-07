@@ -12,6 +12,8 @@ export class Title {
   }
 
   static create(value: string) {
+    if (value.length === 0) throw TitleError.notEmpty();
+
     if (value.length > 30) throw TitleError.maxLength();
 
     const title = new Title(value);
