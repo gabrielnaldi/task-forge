@@ -8,4 +8,15 @@ describe('Task - Entity', () => {
 
     expect(task).toBeInstanceOf(Task);
   });
+
+  it('should make sure that a task has a title', () => {
+    const title = 'Task title example';
+
+    const input = { title };
+
+    const task = Task.create(input);
+
+    expect(task).toBeInstanceOf(Task);
+    expect(task.title).toBe(title);
+  });
 });
