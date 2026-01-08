@@ -1,3 +1,5 @@
+import { DescriptionError } from '../errors/value-objects/description.errors';
+
 export class Description {
   private readonly _value: string;
 
@@ -10,6 +12,8 @@ export class Description {
   }
 
   public static create(value: string) {
+    if (value.length > 100) throw DescriptionError.maxLength();
+
     const description = new Description(value);
 
     return description;
