@@ -22,4 +22,13 @@ export class DescriptionError extends Error {
 
     return error;
   }
+
+  public static notEmpty() {
+    const error = new DescriptionError(
+      'Description must not be empty!',
+      'NOT_EMPTY_ERROR',
+    );
+
+    return error;
+  }
 }
