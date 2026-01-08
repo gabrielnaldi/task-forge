@@ -23,4 +23,17 @@ describe('Description - Value Object', () => {
       expect((error as DescriptionError).code).toBe('MAX_LENGTH_ERROR');
     }
   });
+
+  it('must make sure that description does not exceed 100 characters', () => {
+    const invalid_description = '';
+
+    const fn = () => Description.create(invalid_description);
+
+    try {
+      fn();
+    } catch (error) {
+      expect(error).toBeInstanceOf(DescriptionError);
+      expect((error as DescriptionError).code).toBe('NOT_EMPTY_ERROR');
+    }
+  });
 });
