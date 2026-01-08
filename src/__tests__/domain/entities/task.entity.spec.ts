@@ -25,7 +25,7 @@ describe('Task - Entity', () => {
     const task = Task.create(input);
 
     expect(task).toBeInstanceOf(Task);
-    expect(task.title).toBe(title);
+    expect(task.title).toBe(title.value);
   });
 
   it('should make sure that a task has a description', () => {

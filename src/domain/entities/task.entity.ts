@@ -8,7 +8,7 @@ export class Task {
   }
 
   get title() {
-    return this.props.title;
+    return this.props.title.value;
   }
 
   get description() {
