@@ -11,6 +11,10 @@ export class Task {
     return this.props.title;
   }
 
+  get description() {
+    return this.props.description;
+  }
+
   static create(props: TaskContract) {
     const task = new Task(props);
     return task;
