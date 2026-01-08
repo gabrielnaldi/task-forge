@@ -1,4 +1,6 @@
+import { Title } from '../value-objects/title.value-object';
+
 export interface TaskContract {
-  title: string;
+  title: Title;
   description: string;
 }
