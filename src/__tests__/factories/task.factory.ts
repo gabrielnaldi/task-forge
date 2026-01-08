@@ -1,5 +1,6 @@
 import { TaskContract } from '@src/domain/contracts/task.contract';
 import { Task } from '@src/domain/entities/task.entity';
+import { Description } from '@src/domain/value-objects/description.value-object';
 import { Title } from '@src/domain/value-objects/title.value-object';
 
 type OverrideData = Partial<TaskContract>;
@@ -8,7 +9,7 @@ export class TaskFactory {
   private static makeTaskData(overrideData: OverrideData): TaskContract {
     const data: TaskContract = {
       title: Title.create('Task title - example'),
-      description: 'Task description - example',
+      description: Description.create('Task description - example'),
       ...overrideData,
     };
 

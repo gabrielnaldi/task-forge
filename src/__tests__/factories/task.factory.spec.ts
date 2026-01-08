@@ -1,6 +1,7 @@
 import { Task } from '@src/domain/entities/task.entity';
 import { TaskFactory } from './task.factory';
 import { Title } from '@src/domain/value-objects/title.value-object';
+import { Description } from '@src/domain/value-objects/description.value-object';
 
 describe('Task - Factory', () => {
   it('should create a valid task', () => {
@@ -18,7 +19,7 @@ describe('Task - Factory', () => {
 
     const override_data = {
       title: Title.create(override_title),
-      description: override_description,
+      description: Description.create(override_description),
     };
 
     const task = TaskFactory.makeTask(override_data);

@@ -1,10 +1,11 @@
 import { TaskContract } from '@src/domain/contracts/task.contract';
 import { Task } from '@src/domain/entities/task.entity';
+import { Description } from '@src/domain/value-objects/description.value-object';
 import { Title } from '@src/domain/value-objects/title.value-object';
 
 describe('Task - Entity', () => {
   const VALID_TITLE = Title.create('Task title - example');
-  const VALID_DESCRIPTION = 'Task description - example';
+  const VALID_DESCRIPTION = Description.create('Task description - example');
 
   it('should create a task', () => {
     const input = {
@@ -29,12 +30,12 @@ describe('Task - Entity', () => {
   });
 
   it('should make sure that a task has a description', () => {
-    const description = 'Task description example';
+    const description = Description.create('Task description example');
 
     const input = { title: VALID_TITLE, description };
 
     const task = Task.create(input);
 
-    expect(task.description).toBe(description);
+    expect(task.description).toBe(description.value);
   });
 });

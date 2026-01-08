@@ -12,7 +12,7 @@ export class Task {
   }
 
   get description() {
-    return this.props.description;
+    return this.props.description.value;
   }
 
   static create(props: TaskContract) {
