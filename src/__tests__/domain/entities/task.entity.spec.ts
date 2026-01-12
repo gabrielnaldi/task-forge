@@ -36,7 +36,7 @@ describe('Task - Entity', () => {
     expect(task.title).toBe(title.value);
   });
 
-  it('should make sure that a task has a description', () => {
+  it('should allow to define task description', () => {
     const description = Description.create('Task description example');
 
     const status = DEFAULT_STATUS;
