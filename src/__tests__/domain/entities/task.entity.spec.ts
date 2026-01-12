@@ -61,4 +61,12 @@ describe('Task - Entity', () => {
 
     expect(task.status).toBe(TaskStatusValues.CANCELED);
   });
+
+  it('should be able to complete a task', () => {
+    const task = Task.create(VALID_CREATE_INPUT);
+
+    task.complete();
+
+    expect(task.status).toBe(TaskStatusValues.COMPLETED);
+  });
 });
