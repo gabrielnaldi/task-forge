@@ -20,6 +20,10 @@ export class Task {
     return this.props.status;
   }
 
+  cancel() {
+    this.props.status = TaskStatusValues.CANCELED;
+  }
+
   static create(props: CreateTaskContract) {
     const task_props: TaskContract = {
       status: TaskStatusValues.PENDING,
