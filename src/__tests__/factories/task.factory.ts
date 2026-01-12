@@ -1,5 +1,6 @@
 import { TaskContract } from '@src/domain/contracts/task.contract';
 import { Task } from '@src/domain/entities/task.entity';
+import { TaskStatusValues } from '@src/domain/types/task-status.type';
 import { Description } from '@src/domain/value-objects/description.value-object';
 import { Title } from '@src/domain/value-objects/title.value-object';
 
@@ -10,6 +11,7 @@ export class TaskFactory {
     const data: TaskContract = {
       title: Title.create('Task title - example'),
       description: Description.create('Task description - example'),
+      status: TaskStatusValues.PENDING,
       ...overrideData,
     };
 
