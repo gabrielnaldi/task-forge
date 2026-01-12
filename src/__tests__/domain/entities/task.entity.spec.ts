@@ -22,7 +22,7 @@ describe('Task - Entity', () => {
     expect(task).toBeInstanceOf(Task);
   });
 
-  it('should make sure that a task has a title', () => {
+  it('should allow to define task title', () => {
     const title = Title.create('Task title example');
 
     const input: CreateTaskContract = {
