@@ -6,16 +6,18 @@ import { Title } from '@src/domain/value-objects/title.value-object';
 
 describe('Task - Entity', () => {
   const VALID_TITLE = Title.create('Task title - example');
+
   const VALID_DESCRIPTION = Description.create('Task description - example');
+
   const DEFAULT_STATUS = TaskStatusValues.PENDING;
 
-  it('should create a task', () => {
-    const input: CreateTaskContract = {
-      title: VALID_TITLE,
-      description: VALID_DESCRIPTION,
-    };
+  const VALID_CREATE_INPUT: CreateTaskContract = {
+    title: VALID_TITLE,
+    description: VALID_DESCRIPTION,
+  };
 
-    const task = Task.create(input);
+  it('should create a task', () => {
+    const task = Task.create(VALID_CREATE_INPUT);
 
     expect(task).toBeInstanceOf(Task);
   });
@@ -47,13 +49,10 @@ describe('Task - Entity', () => {
   });
 
   it('should make sure that a task is created with PENDING status', () => {
-    const input: CreateTaskContract = {
-      title: VALID_TITLE,
-      description: VALID_DESCRIPTION,
-    };
-
-    const task = Task.create(input);
+    const task = Task.create(VALID_CREATE_INPUT);
 
     expect(task.status).toBe(DEFAULT_STATUS);
   });
+
+  // it('should be able to cancel a task', () => {});
 });
