@@ -54,5 +54,11 @@ describe('Task - Entity', () => {
     expect(task.status).toBe(DEFAULT_STATUS);
   });
 
-  // it('should be able to cancel a task', () => {});
+  it('should be able to cancel a task', () => {
+    const task = Task.create(VALID_CREATE_INPUT);
+
+    task.cancel();
+
+    expect(task.status).toBe(TaskStatusValues.CANCELED);
+  });
 });
