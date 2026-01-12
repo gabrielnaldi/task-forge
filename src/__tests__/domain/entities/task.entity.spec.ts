@@ -47,4 +47,16 @@ describe('Task - Entity', () => {
 
     expect(task.description).toBe(description.value);
   });
+
+  it('should make sure that a task has a status', () => {
+    const input: TaskContract = {
+      title: VALID_TITLE,
+      description: VALID_DESCRIPTION,
+      status: DEFAULT_STATUS,
+    };
+
+    const task = Task.create(input);
+
+    expect(task.status).toBe(DEFAULT_STATUS);
+  });
 });
