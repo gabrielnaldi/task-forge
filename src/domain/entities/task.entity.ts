@@ -24,6 +24,10 @@ export class Task {
     this.props.status = TaskStatusValues.CANCELED;
   }
 
+  complete() {
+    this.props.status = TaskStatusValues.COMPLETED;
+  }
+
   static create(props: CreateTaskContract) {
     const task_props: TaskContract = {
       status: TaskStatusValues.PENDING,
