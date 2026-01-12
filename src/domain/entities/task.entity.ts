@@ -1,4 +1,5 @@
-import { TaskContract } from '../contracts/task.contract';
+import { CreateTaskContract, TaskContract } from '../contracts/task.contract';
+import { TaskStatusValues } from '../types/task-status.type';
 
 export class Task {
   private readonly props: TaskContract;
@@ -19,8 +20,14 @@ export class Task {
     return this.props.status;
   }
 
-  static create(props: TaskContract) {
-    const task = new Task(props);
+  static create(props: CreateTaskContract) {
+    const task_props: TaskContract = {
+      status: TaskStatusValues.PENDING,
+      ...props,
+    };
+
+    const task = new Task(task_props);
+
     return task;
   }
 }

@@ -7,3 +7,8 @@ export interface TaskContract {
   description: Description;
   status: TaskStatus;
 }
+
+export interface CreateTaskContract {
+  title: Title;
+  description: Description;
+}
