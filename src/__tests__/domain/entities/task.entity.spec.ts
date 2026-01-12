@@ -1,4 +1,4 @@
-import { TaskContract } from '@src/domain/contracts/task.contract';
+import { CreateTaskContract } from '@src/domain/contracts/task.contract';
 import { Task } from '@src/domain/entities/task.entity';
 import { TaskStatusValues } from '@src/domain/types/task-status.type';
 import { Description } from '@src/domain/value-objects/description.value-object';
@@ -10,10 +10,9 @@ describe('Task - Entity', () => {
   const DEFAULT_STATUS = TaskStatusValues.PENDING;
 
   it('should create a task', () => {
-    const input: TaskContract = {
+    const input: CreateTaskContract = {
       title: VALID_TITLE,
       description: VALID_DESCRIPTION,
-      status: DEFAULT_STATUS,
     };
 
     const task = Task.create(input);
@@ -24,10 +23,9 @@ describe('Task - Entity', () => {
   it('should make sure that a task has a title', () => {
     const title = Title.create('Task title example');
 
-    const input: TaskContract = {
+    const input: CreateTaskContract = {
       title,
       description: VALID_DESCRIPTION,
-      status: DEFAULT_STATUS,
     };
 
     const task = Task.create(input);
@@ -48,11 +46,10 @@ describe('Task - Entity', () => {
     expect(task.description).toBe(description.value);
   });
 
-  it('should make sure that a task has a status', () => {
-    const input: TaskContract = {
+  it('should make sure that a task is created with PENDING status', () => {
+    const input: CreateTaskContract = {
       title: VALID_TITLE,
       description: VALID_DESCRIPTION,
-      status: DEFAULT_STATUS,
     };
 
     const task = Task.create(input);
