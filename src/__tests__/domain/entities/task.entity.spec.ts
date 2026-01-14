@@ -47,6 +47,16 @@ describe('Task - Entity', () => {
     expect(task.description).toBe(description.value);
   });
 
+  it('should allow to define task id', () => {
+    const valid_id = 'task-valid-id-1';
+
+    const input = { ...VALID_CREATE_INPUT, id: valid_id };
+
+    const task = Task.create(input);
+
+    expect(task.id).toBe(valid_id);
+  });
+
   it('should make sure that a task is created with PENDING status', () => {
     const task = Task.create(VALID_CREATE_INPUT);
 
