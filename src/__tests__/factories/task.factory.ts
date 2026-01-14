@@ -9,6 +9,7 @@ type OverrideData = Partial<TaskContract>;
 export class TaskFactory {
   private static makeTaskData(overrideData: OverrideData): TaskContract {
     const data: TaskContract = {
+      id: 'valid-id',
       title: Title.create('Task title - example'),
       description: Description.create('Task description - example'),
       status: TaskStatusValues.PENDING,

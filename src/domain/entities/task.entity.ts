@@ -8,6 +8,10 @@ export class Task {
     this.props = props;
   }
 
+  get id() {
+    return this.props.id;
+  }
+
   get title() {
     return this.props.title.value;
   }

@@ -12,6 +12,7 @@ describe('Task - Entity', () => {
   const DEFAULT_STATUS = TaskStatusValues.PENDING;
 
   const VALID_CREATE_INPUT: CreateTaskContract = {
+    id: 'valid-id',
     title: VALID_TITLE,
     description: VALID_DESCRIPTION,
   };
@@ -26,8 +27,8 @@ describe('Task - Entity', () => {
     const title = Title.create('Task title example');
 
     const input: CreateTaskContract = {
+      ...VALID_CREATE_INPUT,
       title,
-      description: VALID_DESCRIPTION,
     };
 
     const task = Task.create(input);
@@ -39,9 +40,7 @@ describe('Task - Entity', () => {
   it('should allow to define task description', () => {
     const description = Description.create('Task description example');
 
-    const status = DEFAULT_STATUS;
-
-    const input = { title: VALID_TITLE, description, status };
+    const input = { ...VALID_CREATE_INPUT, description };
 
     const task = Task.create(input);
 
