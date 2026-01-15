@@ -24,6 +24,14 @@ export class Task {
     return this.props.status;
   }
 
+  get createdAt() {
+    return this.props.createdAt;
+  }
+
+  get updatedAt() {
+    return this.props.updatedAt;
+  }
+
   cancel() {
     this.props.status = TaskStatusValues.CANCELED;
   }
@@ -33,8 +41,12 @@ export class Task {
   }
 
   static create(props: CreateTaskContract) {
+    const now = new Date();
+
     const task_props: TaskContract = {
       status: TaskStatusValues.PENDING,
+      createdAt: now,
+      updatedAt: now,
       ...props,
     };
 

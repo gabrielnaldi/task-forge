@@ -8,6 +8,8 @@ export interface TaskContract {
   title: Title;
   description: Description;
   status: TaskStatus;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface CreateTaskContract {
