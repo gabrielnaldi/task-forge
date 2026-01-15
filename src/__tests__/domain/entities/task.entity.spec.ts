@@ -83,4 +83,11 @@ describe('Task - Entity', () => {
 
     expect(task.status).toBe(TaskStatusValues.COMPLETED);
   });
+
+  it('should ensure that all tasks have a creation date and a update date', () => {
+    const task = Task.create(VALID_CREATE_INPUT);
+
+    expect(task.createdAt).toBeInstanceOf(Date);
+    expect(task.updatedAt).toBeInstanceOf(Date);
+  });
 });
