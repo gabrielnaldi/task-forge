@@ -112,4 +112,22 @@ describe('Task - Entity', () => {
 
     jest.useRealTimers();
   });
+
+  it('should change updated date of task after canceling it', () => {
+    jest.useFakeTimers();
+
+    const task = Task.create(VALID_CREATE_INPUT);
+
+    const before = task.updatedAt;
+
+    jest.advanceTimersByTime(1000);
+
+    task.cancel();
+
+    const after = task.updatedAt;
+
+    expect(after.getTime()).toBeGreaterThan(before.getTime());
+
+    jest.useRealTimers();
+  });
 });
