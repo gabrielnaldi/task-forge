@@ -2,9 +2,12 @@ import { CreateTaskContract } from '@src/domain/contracts/task.contract';
 import { Task } from '@src/domain/entities/task.entity';
 import { TaskStatusValues } from '@src/domain/types/task-status.type';
 import { Description } from '@src/domain/value-objects/description.value-object';
+import { TaskId } from '@src/domain/value-objects/task-id.value-object';
 import { Title } from '@src/domain/value-objects/title.value-object';
 
 describe('Task - Entity', () => {
+  const VALID_TASK_ID = TaskId.create('valid-task-id');
+
   const VALID_TITLE = Title.create('Task title - example');
 
   const VALID_DESCRIPTION = Description.create('Task description - example');
@@ -12,7 +15,7 @@ describe('Task - Entity', () => {
   const DEFAULT_STATUS = TaskStatusValues.PENDING;
 
   const VALID_CREATE_INPUT: CreateTaskContract = {
-    id: 'valid-id',
+    id: VALID_TASK_ID,
     title: VALID_TITLE,
     description: VALID_DESCRIPTION,
   };
@@ -50,7 +53,9 @@ describe('Task - Entity', () => {
   it('should allow to define task id', () => {
     const valid_id = 'task-valid-id-1';
 
-    const input = { ...VALID_CREATE_INPUT, id: valid_id };
+    const valid_task_id = TaskId.create(valid_id);
+
+    const input = { ...VALID_CREATE_INPUT, id: valid_task_id };
 
     const task = Task.create(input);
 

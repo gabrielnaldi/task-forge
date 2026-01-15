@@ -9,7 +9,7 @@ export class Task {
   }
 
   get id() {
-    return this.props.id;
+    return this.props.id.value;
   }
 
   get title() {
