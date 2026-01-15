@@ -1,3 +1,5 @@
+import { TaskIdError } from '../errors/value-objects/task-id.errors';
+
 export class TaskId {
   private readonly _value: string;
 
@@ -10,6 +12,8 @@ export class TaskId {
   }
 
   public static create(value: string) {
+    if (value.length === 0) throw TaskIdError.notEmpty();
+
     const task_id = new TaskId(value);
 
     return task_id;
