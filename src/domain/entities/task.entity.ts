@@ -34,14 +34,14 @@ export class Task {
 
   cancel() {
     this.props.status = TaskStatusValues.CANCELED;
+
+    this.props.updatedAt = new Date();
   }
 
   complete() {
     this.props.status = TaskStatusValues.COMPLETED;
 
-    const now = new Date();
-
-    this.props.updatedAt = now;
+    this.props.updatedAt = new Date();
   }
 
   static create(props: CreateTaskContract) {
