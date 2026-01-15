@@ -20,6 +20,10 @@ describe('Task - Entity', () => {
     description: VALID_DESCRIPTION,
   };
 
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('should create a task', () => {
     const task = Task.create(VALID_CREATE_INPUT);
 
@@ -89,5 +93,23 @@ describe('Task - Entity', () => {
 
     expect(task.createdAt).toBeInstanceOf(Date);
     expect(task.updatedAt).toBeInstanceOf(Date);
+  });
+
+  it('should change updated date of task after completing it', () => {
+    jest.useFakeTimers();
+
+    const task = Task.create(VALID_CREATE_INPUT);
+
+    const before = task.updatedAt;
+
+    jest.advanceTimersByTime(1000);
+
+    task.complete();
+
+    const after = task.updatedAt;
+
+    expect(after.getTime()).toBeGreaterThan(before.getTime());
+
+    jest.useRealTimers();
   });
 });
