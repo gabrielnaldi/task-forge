@@ -38,6 +38,10 @@ export class Task {
 
   complete() {
     this.props.status = TaskStatusValues.COMPLETED;
+
+    const now = new Date();
+
+    this.props.updatedAt = now;
   }
 
   static create(props: CreateTaskContract) {
